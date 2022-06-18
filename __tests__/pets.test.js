@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const Pet = require('../lib/models/Pet');
 
 const pets = [
   { id: '1', name: 'Rufus', type: 'dog', alive: false },
@@ -41,15 +42,13 @@ describe('test routes for /pets resource', () => {
     expect(res.body.alive).toEqual(true);
   });
 
-  // it('DELETE /turtles/:id', async () => {
-  //   const res = await request(app).delete('/turtles/3');
-  //   expect(res.status).toEqual(200);
-  //   expect(res.body).toEqual(turtles[2]);
-  //   const turtles_after_delete = await NinjaTurtle.getAll();
-  //   expect(turtles_after_delete).toEqual(
-  //     turtles.filter((turtle) => turtle.id !== '3')
-  //   );
-  // });
+  it('DELETE /pets/:id should delete entry', async () => {
+    const res = await request(app).delete('/pets/3');
+    expect(res.status).toEqual(200);
+    expect(res.body).toEqual(pets[2]);
+    const pets_after_delete = await Pet.getAll();
+    expect(pets_after_delete).toEqual(pets.filter((pet) => pet.id !== '3'));
+  });
 
   afterAll(() => {
     pool.end();
