@@ -14,4 +14,4 @@ INSERT INTO ninja_turtles (name, mask_color, weapon) VALUES
 ('Leonardo', 'Blue', 'Katana'),
 ('Donatello', 'Purple', 'Bō'),
 ('Raphael', 'Red', 'Sai'),
-('Michaelangelo', 'Orange','Nunchaku');
+('Michelangelo', 'Orange','Nunchaku');

@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const NinjaTurtle = require('../lib/models/NinjaTurtle');
 
 const turtles = [
   {
@@ -15,6 +16,18 @@ const turtles = [
     name: 'Donatello',
     mask_color: 'Purple',
     weapon: 'Bō',
+  },
+  {
+    id: '3',
+    name: 'Raphael',
+    mask_color: 'Red',
+    weapon: 'Sai',
+  },
+  {
+    id: '4',
+    name: 'Michelangelo',
+    mask_color: 'Orange',
+    weapon: 'Nunchaku',
   },
 ];
 
@@ -49,6 +62,16 @@ describe('backend-express-template routes', () => {
       .put('/turtles/1')
       .send({ mask_color: 'Pink' });
     expect(res.status).toEqual(200);
+  });
+
+  it('DELETE /turtles/:id', async () => {
+    const res = await request(app).delete('/turtles/3');
+    expect(res.status).toEqual(200);
+    expect(res.body).toEqual(turtles[2]);
+    const turtles_after_delete = await NinjaTurtle.getAll();
+    expect(turtles_after_delete).toEqual(
+      turtles.filter((turtle) => turtle.id !== '3')
+    );
   });
 
   afterAll(() => {
