@@ -62,6 +62,8 @@ describe('test routes for /turtles resource', () => {
       .put('/turtles/1')
       .send({ mask_color: 'Pink' });
     expect(res.status).toEqual(200);
+    const updated = await NinjaTurtle.getById(1);
+    expect(updated).toHaveProperty('mask_color', 'Pink');
   });
 
   it('DELETE /turtles/:id', async () => {

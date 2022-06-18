@@ -35,12 +35,11 @@ describe('test routes for /pets resource', () => {
     expect(res.body.name).toBe('Euclid');
   });
 
-  // it('PUT /turtles/:id should update a turtle entry', async () => {
-  //   const res = await request(app)
-  //     .put('/turtles/1')
-  //     .send({ mask_color: 'Pink' });
-  //   expect(res.status).toEqual(200);
-  // });
+  it('PUT /pets/:id should update a pet entry', async () => {
+    const res = await request(app).put('/pets/1').send({ alive: true });
+    expect(res.status).toEqual(200);
+    expect(res.body.alive).toEqual(true);
+  });
 
   // it('DELETE /turtles/:id', async () => {
   //   const res = await request(app).delete('/turtles/3');
