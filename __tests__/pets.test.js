@@ -21,10 +21,11 @@ describe('test routes for /pets resource', () => {
     expect(res.body).toEqual(pets);
   });
 
-  // it('GET /turtles/:id should return the details for a given turtle', async () => {
-  //   const res = await request(app).get('/turtles/2');
-  //   expect(res.body).toEqual(turtles[1]);
-  // });
+  it('GET /pets/:id should return the details for a given pet', async () => {
+    const res = await request(app).get('/pets/2');
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual(pets[1]);
+  });
 
   // it('POST /turtles should create a new ninja turtle', async () => {
   //   const res = await request(app)
