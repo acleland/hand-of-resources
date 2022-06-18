@@ -4,10 +4,10 @@ const request = require('supertest');
 const app = require('../lib/app');
 
 const pets = [
-  { name: 'Rufus', type: 'dog', alive: false },
-  { name: 'Roscoe', type: 'dog', alive: false },
-  { name: 'Jessica', type: 'dog', alive: false },
-  { name: 'Pythagoras', type: 'cat', alive: true },
+  { id: '1', name: 'Rufus', type: 'dog', alive: false },
+  { id: '2', name: 'Roscoe', type: 'dog', alive: false },
+  { id: '3', name: 'Jessica', type: 'dog', alive: false },
+  { id: '4', name: 'Pythagoras', type: 'cat', alive: true },
 ];
 
 describe('test routes for /pets resource', () => {
