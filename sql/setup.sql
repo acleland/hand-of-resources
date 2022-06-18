@@ -2,6 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 
 DROP TABLE IF EXISTS ninja_turtles;
+DROP TABLE IF EXISTS pets;
 
 CREATE TABLE ninja_turtles (
   id BIGINT GENERATED ALWAYS AS IDENTITY,
@@ -15,3 +16,16 @@ INSERT INTO ninja_turtles (name, mask_color, weapon) VALUES
 ('Donatello', 'Purple', 'Bō'),
 ('Raphael', 'Red', 'Sai'),
 ('Michelangelo', 'Orange','Nunchaku');
+
+CREATE TABLE pets (
+  id BIGINT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR NOT NULL,
+  type VARCHAR NOT NULL,
+  alive BOOLEAN NOT NULL
+);
+
+INSERT INTO pets (name, type, alive) VALUES
+('Rufus', 'dog', false),
+('Roscoe', 'dog', false),
+('Jessica', 'dog', false),
+('Pythagoras', 'cat', true);

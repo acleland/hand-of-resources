@@ -31,7 +31,7 @@ const turtles = [
   },
 ];
 
-describe('backend-express-template routes', () => {
+describe('test routes for /turtles resource', () => {
   beforeEach(() => {
     return setup(pool);
   });
