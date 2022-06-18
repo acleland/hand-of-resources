@@ -27,13 +27,13 @@ describe('test routes for /pets resource', () => {
     expect(res.body).toEqual(pets[1]);
   });
 
-  // it('POST /turtles should create a new ninja turtle', async () => {
-  //   const res = await request(app)
-  //     .post('/turtles')
-  //     .send({ name: 'Picasso', mask_color: 'Yellow', weapon: 'Paintbrush' });
-  //   expect(res.status).toBe(200);
-  //   expect(res.body.name).toBe('Picasso');
-  // });
+  it('POST /pets should create a new pet', async () => {
+    const res = await request(app)
+      .post('/pets')
+      .send({ name: 'Euclid', type: 'cat', alive: true });
+    expect(res.status).toBe(200);
+    expect(res.body.name).toBe('Euclid');
+  });
 
   // it('PUT /turtles/:id should update a turtle entry', async () => {
   //   const res = await request(app)
