@@ -44,12 +44,12 @@ describe('backend-express-template routes', () => {
     expect(res.body.name).toBe('Picasso');
   });
 
-  // it('PUT /turtles/:id should update a turtle entry', async () => {
-  //   const res = await request(app)
-  //     .put('/turtles/1')
-  //     .send({ mask_color: 'Pink' });
-  //   expect(res.status).toEqual(200);
-  // });
+  it('PUT /turtles/:id should update a turtle entry', async () => {
+    const res = await request(app)
+      .put('/turtles/1')
+      .send({ mask_color: 'Pink' });
+    expect(res.status).toEqual(200);
+  });
 
   afterAll(() => {
     pool.end();
