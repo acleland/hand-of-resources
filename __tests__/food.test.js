@@ -44,13 +44,13 @@ describe('test routes for /foods resource', () => {
     expect(res.body.tastiness).toEqual(8);
   });
 
-  // it('DELETE /tas/:id should delete entry', async () => {
-  //   const res = await request(app).delete('/tas/3');
-  //   expect(res.status).toEqual(200);
-  //   expect(res.body).toEqual(tas[2]);
-  //   const tas_after_delete = await TA.getAll();
-  //   expect(tas_after_delete).toEqual(tas.filter((ta) => ta.id !== '3'));
-  // });
+  it('DELETE /foods/:id should delete entry', async () => {
+    const res = await request(app).delete('/foods/3');
+    expect(res.status).toEqual(200);
+    expect(res.body).toEqual(foods[2]);
+    const foods_after_delete = await Food.getAll();
+    expect(foods_after_delete).toEqual(foods.filter((ta) => ta.id !== '3'));
+  });
 
   afterAll(() => {
     pool.end();
