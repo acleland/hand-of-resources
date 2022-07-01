@@ -31,7 +31,7 @@ const turtles = [
   },
 ];
 
-describe.skip('test routes for /turtles resource', () => {
+describe('test routes for /turtles resource', () => {
   beforeEach(() => {
     return setup(pool);
   });
