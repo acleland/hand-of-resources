@@ -28,17 +28,15 @@ describe('test routes for /foods resource', () => {
     expect(res.body).toEqual(foods[1]);
   });
 
-  // it('POST /tas should create a new TA', async () => {
-  //   const res = await request(app).post('/tas').send({
-  //     name: 'Pete',
-  //     pronoun: 'He/him',
-  //     super_power: 'Speed-Googling',
-  //     description:
-  //       'Pete can find solutions quickly with his special Speed-Googling ability',
-  //   });
-  //   expect(res.status).toBe(200);
-  //   expect(res.body.name).toBe('Pete');
-  // });
+  it('POST /foods should create a new food', async () => {
+    const res = await request(app).post('/foods').send({
+      name: 'Grilled Cheese',
+      tastiness: 8,
+      healthiness: 4,
+    });
+    expect(res.status).toBe(200);
+    expect(res.body.name).toBe('Grilled Cheese');
+  });
 
   // it('PUT /tas/:id should update a TA entry', async () => {
   //   const res = await request(app).put('/tas/1').send({ pronoun: 'She/they' });
