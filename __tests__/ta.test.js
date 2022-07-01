@@ -31,7 +31,7 @@ const tas = [
   },
 ];
 
-describe('test routes for /tas resource', () => {
+describe.skip('test routes for /tas resource', () => {
   beforeEach(() => {
     return setup(pool);
   });
