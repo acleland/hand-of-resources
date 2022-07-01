@@ -62,17 +62,16 @@ describe('test routes for /tas resource', () => {
 
   it('PUT /tas/:id should update a TA entry', async () => {
     const res = await request(app).put('/tas/1').send({ pronoun: 'She/they' });
-    console.log('put res', res.body);
     expect(res.status).toEqual(200);
     expect(res.body.pronoun).toEqual('She/they');
   });
 
-  it.skip('DELETE /tas/:id should delete entry', async () => {
-    const res = await request(app).delete('/pets/3');
+  it('DELETE /tas/:id should delete entry', async () => {
+    const res = await request(app).delete('/tas/3');
     expect(res.status).toEqual(200);
     expect(res.body).toEqual(tas[2]);
-    const pets_after_delete = await TA.getAll();
-    expect(pets_after_delete).toEqual(tas.filter((ta) => ta.id !== '3'));
+    const tas_after_delete = await TA.getAll();
+    expect(tas_after_delete).toEqual(tas.filter((ta) => ta.id !== '3'));
   });
 
   afterAll(() => {
