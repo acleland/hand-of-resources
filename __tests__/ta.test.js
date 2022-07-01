@@ -49,23 +49,22 @@ describe('test routes for /tas resource', () => {
   });
 
   it('POST /tas should create a new TA', async () => {
-    const res = await request(app)
-      .post('/tas')
-      .send({
-        name: 'Pete',
-        pronoun: 'He/him',
-        super_power: 'Speed-Googling',
-        description:
-          'Pete can find solutions quickly with his special Speed-Googling ability',
-      });
+    const res = await request(app).post('/tas').send({
+      name: 'Pete',
+      pronoun: 'He/him',
+      super_power: 'Speed-Googling',
+      description:
+        'Pete can find solutions quickly with his special Speed-Googling ability',
+    });
     expect(res.status).toBe(200);
     expect(res.body.name).toBe('Pete');
   });
 
-  it.skip('PUT /tas/:id should update a TA entry', async () => {
-    const res = await request(app).put('/tas/1').send({ alive: true });
+  it('PUT /tas/:id should update a TA entry', async () => {
+    const res = await request(app).put('/tas/1').send({ pronoun: 'She/they' });
+    console.log('put res', res.body);
     expect(res.status).toEqual(200);
-    expect(res.body.alive).toEqual(true);
+    expect(res.body.pronoun).toEqual('She/they');
   });
 
   it.skip('DELETE /tas/:id should delete entry', async () => {
