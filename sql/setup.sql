@@ -4,6 +4,7 @@
 DROP TABLE IF EXISTS ninja_turtles;
 DROP TABLE IF EXISTS pets;
 DROP TABLE IF EXISTS tas;
+DROP TABLE IF EXISTS foods;
 
 CREATE TABLE ninja_turtles (
   id BIGINT GENERATED ALWAYS AS IDENTITY,
@@ -43,3 +44,17 @@ INSERT INTO tas (name, pronoun, super_power, description) VALUES
 ('Triana', 'She/her', 'Voice of Compelling', 'Triana has the power to compel students to action, usually for the student''s own benefit -- for example compelling them to complete their resumes so they can succeed on the job market.'),
 ('Tanner', 'He/him', 'Voice of Soothing', 'Tanner can calm a distraught student with his soothing voice.'),
 ('Madden', 'They/he', 'Bugray Vision', 'Madden can spot a bug instantly in a vast block of a student''s code using their enhanced Bugray Vision.');
+
+
+CREATE TABLE foods (
+  id BIGINT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR NOT NULL,
+  tastiness SMALLINT,
+  healthiness SMALLINT
+);
+
+INSERT INTO foods (name, tastiness, healthiness) VALUES
+('Banana', 7, 8),
+('Pizza', 9, 2),
+('Chicken', 7, 8),
+('Broccoli', 5, 10)
