@@ -38,11 +38,11 @@ describe('test routes for /foods resource', () => {
     expect(res.body.name).toBe('Grilled Cheese');
   });
 
-  // it('PUT /tas/:id should update a TA entry', async () => {
-  //   const res = await request(app).put('/tas/1').send({ pronoun: 'She/they' });
-  //   expect(res.status).toEqual(200);
-  //   expect(res.body.pronoun).toEqual('She/they');
-  // });
+  it('PUT /foods/:id should update a food entry', async () => {
+    const res = await request(app).put('/foods/1').send({ tastiness: 8 });
+    expect(res.status).toEqual(200);
+    expect(res.body.tastiness).toEqual(8);
+  });
 
   // it('DELETE /tas/:id should delete entry', async () => {
   //   const res = await request(app).delete('/tas/3');
