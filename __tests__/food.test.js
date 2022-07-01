@@ -15,18 +15,18 @@ describe('test routes for /foods resource', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it.only('GET /foods should return list of foods', async () => {
+  it('GET /foods should return list of foods', async () => {
     const res = await request(app).get('/foods');
     expect(res.status).toBe(200);
     expect(res.body.length).toEqual(4);
     expect(res.body).toEqual(foods);
   });
 
-  // it('GET /tas/:id should return the details for a given TA', async () => {
-  //   const res = await request(app).get('/tas/2');
-  //   expect(res.status).toBe(200);
-  //   expect(res.body).toEqual(tas[1]);
-  // });
+  it('GET /foods/:id should return the details for a given food', async () => {
+    const res = await request(app).get('/foods/2');
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual(foods[1]);
+  });
 
   // it('POST /tas should create a new TA', async () => {
   //   const res = await request(app).post('/tas').send({
