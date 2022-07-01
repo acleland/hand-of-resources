@@ -48,12 +48,18 @@ describe('test routes for /tas resource', () => {
     expect(res.body).toEqual(tas[1]);
   });
 
-  it.skip('POST /tas should create a new TA', async () => {
+  it('POST /tas should create a new TA', async () => {
     const res = await request(app)
-      .post('/pets')
-      .send({ name: 'Euclid', type: 'cat', alive: true });
+      .post('/tas')
+      .send({
+        name: 'Pete',
+        pronoun: 'He/him',
+        super_power: 'Speed-Googling',
+        description:
+          'Pete can find solutions quickly with his special Speed-Googling ability',
+      });
     expect(res.status).toBe(200);
-    expect(res.body.name).toBe('Euclid');
+    expect(res.body.name).toBe('Pete');
   });
 
   it.skip('PUT /tas/:id should update a TA entry', async () => {

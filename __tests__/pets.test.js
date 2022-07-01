@@ -11,7 +11,7 @@ const pets = [
   { id: '4', name: 'Pythagoras', type: 'cat', alive: true },
 ];
 
-describe('test routes for /pets resource', () => {
+describe.skip('test routes for /pets resource', () => {
   beforeEach(() => {
     return setup(pool);
   });
